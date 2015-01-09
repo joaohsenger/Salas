@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <div>
+                <center><h1><h:outputText value="#{salaControlador.salaIdentificacao}"/></h1></center>
+            </div>
+            <hr/><br/>
+            <div style="height: 700px;">
+                <div style="width: 400px; float: left; margin: 0 0 0 120px;">
+                    <center><h3><h:outputText value="Aulas disponíveis"/></h3></center>
+                    <h:form>                            
+                        <p:dataTable value="#{reservaControlador.aulas}" var="item">  
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Tipo "/>
+                                </f:facet>
+                                <h:outputText value="#{item.m_Sala.identificacao}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Identificação "/>
+                                </f:facet>
+                                <h:outputText value="#{item.m_Sala.idUtfpr}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Aula "/>
+                                </f:facet>
+                                <h:outputText value="#{item.m_id}"/>
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Reservar"/>
+                                </f:facet>
+                                <center>
+                                    <h:commandButton value="Reservar" action="#{reservaControlador.gravarNovaReserva(item)}" image="res/css/img/document-save-as.png" rendered="#{item.m_disponivel}"/>
+                                </center>
+                            </p:column> 
+                        </p:dataTable>
+                        <br/>
+                        <h:commandLink value=" " action="#{reservaControlador.gravarNovaReserva}" title="Clique para confirmar a reserva para esta Aula"/>
+                    </h:form>
+                </div>                    
+                <div style="width: 500px; float: right; margin: 0 120px 0 0;">  
+                    <br/><br/>
+                    <div>
+                        <h:form>
+                            <h:panelGrid id="display" columns="3">  
+                                <h:outputText value="Data" style="font-size: 20px; font-family: 'Coda';"/>  
+                                <p:calendar value="#{reservaControlador.dataReserva}" id="popupButtonCal" />                                  
+                                <h:commandButton value="Reservar" action="#{reservaControlador.buscarData}" image="res/css/img/buscar.png"/>
+                            </h:panelGrid> 
+                        </h:form>
+                    </div>
+                    <div>
+                        <center><h3><h:outputText value="Decoradores da sala"/></h3></center>
+                        <p:dataTable value="#{decoradorControlador.listarDecoradoresSalaReserva()}" var="item"
+                                     paginator="true" rows="5"  
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                     rowsPerPageTemplate="5,10,15">
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Id "/>
+                                </f:facet>
+                                <center>
+                                    <h:outputText value="#{item.m_id}"/>
+                                </center>   
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Identificação "/>
+                                </f:facet>
+                                <center>
+                                    <h:outputText value="#{item.decoradorIdUtfpr}"/>
+                                </center>   
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Tipo "/>
+                                </f:facet>
+                                <center>
+                                    <h:outputText value="#{item.identificacao}"/>
+                                </center>   
+                            </p:column>
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Sala "/>
+                                </f:facet>
+                                <center>
+                                    <h:outputText value="#{item.salaIdUtfpr}"/>
+                                </center>   
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>

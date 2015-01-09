@@ -1,0 +1,349 @@
+/* 
+    Document   : base
+    Created on : 29/06/2013, 15:37:44
+    Author     : Lucas Dillmann <lucas [at] dillmann.com.br>
+*/
+
+/* FIX HTML5 INTERNET EXPLORER*/
+
+root, header, section, area, footer  { 
+    display: block;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', 'Segoe UI', Tahoma, Georgia, Arial, sans-serif;
+}
+
+body {
+    min-height: 100px;
+    min-width: 990px;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Coda';
+}
+
+a {
+    text-decoration: none;
+}
+
+/* CABECALHO */
+
+header {
+    border: solid #2e2e2e;
+    border-width: 10px 0;
+    height: 140px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    min-width: 990px;
+}
+
+header #logo {
+    width: 575px;
+    height: 110px;
+    background: url(img/logo-header.jpg) no-repeat;
+    float: left;
+    margin: 15px 0 0 15px;
+}
+
+header #menu {
+    padding: 0;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    overflow: hidden;
+}
+
+#listaSalas td {
+    text-align:center; 
+    vertical-align:middle;
+}
+
+#listaSalas tr {
+    text-align:center; 
+    vertical-align:middle;
+}
+
+header #menu ul {
+    list-style: none;
+    padding: 0 20px 0 0;
+    position: relative;
+    right: -20px;
+    background: #ebcd26;
+    display: inline-block;
+    margin: 0 0 0 25px;
+    transform: skew(25deg);
+    -webkit-transform: skew(25deg);
+    -ms-transform: skew(25deg);
+    -o-transform: skew(25deg);
+}
+
+header #menu ul li {
+    list-style: none;
+    padding: 8px 20px;
+    float: left;
+    border-right: 1px solid #d0b83d;
+}
+
+#novoButton {
+    float: right;
+}
+
+#salas ul li {
+    list-style: none;
+    float: left;
+    padding: 8px;
+    /*border-right: 1px solid #d0b83d;*/
+}
+
+#geral ul li {
+    list-style: none;
+    float: left;
+    padding: 8px;
+    /*border-right: 1px solid #d0b83d;*/
+}
+
+header #menu ul li:first-child {
+    margin-left: 10px;
+}
+
+#salas ul li:first-child {
+    margin-left: 0px;
+}
+
+#geral ul li:first-child {
+    margin-left: 0px;
+}
+
+#salas ul li:last-child {
+    border : 0;
+}
+
+#geral ul li:last-child {
+    border : 0;
+}
+
+header #menu ul li:last-child {
+    border: 0;
+}
+
+header #menu ul li a {
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Coda';
+    font-size: 14px;
+    display: inline-block;
+    transform: skew(-25deg);
+    -webkit-transform: skew(-25deg);
+    -ms-transform: skew(-25deg);
+    -o-transform: skew(-25deg);
+}
+
+header #dadosUsuario {
+    width: 350px;
+    float: right;
+    margin-top: 60px;
+}
+
+header #messages {
+    width: 350px;
+    float: left;
+    margin-top: 60px;
+}
+
+header #dadosUsuario #nome {
+    font-family: 'Coda';
+    text-transform: uppercase;
+    font-size: 17px;
+}
+
+header #dadosUsuario #acoes ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header #dadosUsuario #acoes ul li {
+    margin-right: 10px;
+    float: left;
+}
+
+header #dadosUsuario #acoes ul li a {
+    font-size: 10px;
+    background: #2e2e2e;
+    color: #FFF;
+    text-transform: uppercase;
+    padding: 3px;
+}
+
+header #dadosUsuario #acoes ul li a:after {
+    content: " >>";
+}
+
+header #dadosUsuario #acoes ul li a.sair {
+    background: #6f0000;
+}
+
+/* RODAPE */
+
+footer {
+    height: 150px;
+    overflow: hidden;
+    background:  #2e2e2e url(img/logo-footer.png) no-repeat 20px 20px;
+}
+
+footer #desc {
+    padding: 40px 0 0 220px;
+    font-family: 'Coda';
+    color: #FFF;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+footer #desc #sub {
+    opacity: 0.7;
+}
+
+footer #copyr {
+    background: #ebcd26;
+    padding: 10px 10px 10px 25px;
+    position: relative;
+    left: 120px;
+    top: 20px;
+    transform: skew(15deg);
+    -webkit-transform: skew(15deg);
+    -ms-transform: skew(15deg);
+    -o-transform: skew(15deg);
+}
+
+footer #copyr div {
+    transform: skew(-15deg);
+    -webkit-transform: skew(-15deg);
+    -ms-transform: skew(-15deg);
+    -o-transform: skew(-15deg);
+    font-size: 12px;
+    font-family: 'Coda';
+}
+
+/* CONTEUDO */
+#conteudo {
+    min-height: 200px;
+}
+
+/*
+                http://icant.co.uk/csstablegallery/index.php?css=71
+
+                Data Tables and Cascading Style Sheets Gallery
+                Title: Casablanca
+                Author: RODrigo CASTilho Galv�o Ferreira - RODCAST
+                URL: http://www.rodcast.com.br
+                Update: 04/04/2008 10:51 AM
+*/
+
+#tabReservas {
+    color: #7F7F7F;
+    font: 0.8em/1.6em "Trebuchet MS",Verdana,sans-serif;
+    border-collapse: collapse
+}
+
+#tabReservas,caption {
+    margin: 0 auto;
+    border-right: 1px solid #CCC;
+    border-left: 1px solid #CCC
+}
+
+#tabReservas,caption,th,td {
+    border-left: 0;
+    padding: 10px
+}
+
+#tabReservas,caption,thead th,tfoot th,tfoot td {
+    background-color: #E63C1E;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase
+}
+
+#tabReservas, thead th {
+    background-color: #d0b83d;
+    color: #000;
+    text-align: center
+}
+
+#tabReservas, tbody th {
+    padding: 20px 10px
+}
+
+#tabReservas, tbody tr.odd {
+    background-color: #F7F7F7;
+    color: #666
+}
+
+#tabReservas, tbody a {
+    padding: 1px 2px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px dotted #E63C1E
+}
+
+#tabReservas, tbody a:active,tbody a:hover,tbody a:focus,tbody a:visited {
+    color: #666
+}
+
+#tabReservas, tbody tr:hover {
+    background-color: #EEE;
+    color: #333
+}
+
+#tabReservas, tbody tr:hover a {
+    background-color: #FFF
+}
+
+#tabReservas, tbody td+td+td+td a {
+    color: #C30;
+    font-weight: bold;
+    border-bottom: 0
+}
+
+#tabReservas, tbody td+td+td+td a:active,tbody td+td+td+td a:hover,tbody td+td+td+td a:focus,tbody td+td+td+td a:visited {
+    color: #E63C1E
+}
+
+#tabReservas, tbody td a[href="http://www.rodcast.com.br/"] {
+    margin: 0 auto;
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: transparent url('data:image/gif;base64,R0lGODlhDwAPAIAAACEpMf///yH5BAAAAAAALAAAAAAPAA8AAAIjjA8Qer0JmYvULUOlxXEjaEndliUeA56c97TqSD5pfJnhNxYAOw%3D%3D') no-repeat;
+    text-indent: -999em;
+    border-bottom: 0
+}
+
+#tabReservas, tbody a:visited:after {
+    font-family: Verdana,sans-serif;
+    content: "\00A0\221A"
+}
+
+
+#btModSala {
+    width: 21px;
+    height: 18px;
+    padding: 55px 0 0; 
+    margin: 0;
+    border: 0;
+    background: transparent url(img/modSala.jpg) no-repeat center top;
+    overflow: hidden;
+    cursor: pointer; /* vai por o cursor como forma de mão ao passar por cima do botão */
+}
+
+/*#visualizarSala {
+    background: url('img/system-search.png') no-repeat;
+    cursor: pointer;
+    width: 126px;
+    height: 41px;
+    border: none;
+}*/

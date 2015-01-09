@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <div style="height: 60px">
+                <div>
+                    <center><h1>Editar Sala</h1></center> 
+                </div>
+            </div>
+            <hr/>
+            <br/><br/>
+            <div style="height: 400px;">
+                <div style="width:250px; float:left;">
+                    <br/><br/><br/><br/><br/>
+                    <center>
+                        <img src="res/css/img/go-home3.png"/>
+                    </center>
+                </div>
+                <div style="width:450px; float:left;">
+                    <br/><br/><br/><br/>
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel style="width: 205px; font-size: 20px; font-family: 'Coda';" value="Identificação " for="sident"/>
+                            <h:inputText value="#{salaControlador.identificacao}" id="sident" style="width: 205px; font-size: 15px; font-family: 'Coda';"/>
+                            <h:outputLabel style="width: 205px; font-size: 20px; font-family: 'Coda';" value="Descrição " for="sdesc"/>
+                            <h:selectOneMenu value="#{salaControlador.descricao}" style="width: 205px; font-size: 15px; font-family: 'Coda';">
+                                <f:selectItem itemValue="LAB_MECANICA" itemLabel="Laboratório de Mecânica"/>
+                                <f:selectItem itemValue="TEORICA" itemLabel="Teórica"/>
+                                <f:selectItem itemValue="LAB_INFORMATICA" itemLabel="Laboratório de Informática"/>
+                                <f:selectItem itemValue="LAB_QUIMICA" itemLabel="Laboratório de Química"/>
+                            </h:selectOneMenu> 
+                            <h:outputLabel value="Categoria" id="categg" style="width: 205typx;font-size: 20px; font-family: 'Coda';"/>
+                            <h:selectOneMenu value="#{salaControlador.categoria}" id="catego" style="width: 205px; font-size: 15px; font-family: 'Coda';">
+                                <f:selectItem itemValue="INFORMATICA" itemLabel="Informática"/>
+                                <f:selectItem itemValue="QUIMICA" itemLabel="Química"/>
+                                <f:selectItem itemValue="AMBIENTAL" itemLabel="Ambiental"/>
+                            </h:selectOneMenu>
+                            <br/>
+                            <h:commandButton value="Gravar" style="margin: 0 0 0 50px;" image="res/css/img/gravar.png" action="#{salaControlador.gravarEdicao}" title="Clique para editar uma sala"/>
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+                <div style="width:500px; float: left">
+                    <center><h2>Decoradores da sala</h2></center>
+                    <div style="width: 0px; float:right;">
+                        <h:form>
+                            <h:commandButton value="Nova Sala" action="#{redirecionador.novoDecorador}" image="res/css/img/add.png" title="Clique para cadastrar um novo decorador na sala."/>
+                        </h:form>
+                    </div>
+                    <p:dataTable value="#{decoradorControlador.getListaDeDecoradoresSala(salaControlador.codigoSala)}" var="item"
+                                 paginator="true" rows="5"  
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                 rowsPerPageTemplate="5,10,15">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Id "/>
+                            </f:facet>
+                            <center>
+                                <h:outputText value="#{item.m_id}"/>
+                            </center>   
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Identificação "/>
+                            </f:facet>
+                            <center>
+                                <h:outputText value="#{item.decoradorIdUtfpr}"/>
+                            </center>   
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Tipo "/>
+                            </f:facet>
+                            <center>
+                                <h:outputText value="#{item.identificacao}"/>
+                            </center>   
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Sala "/>
+                            </f:facet>
+                            <center>
+                                <h:outputText value="#{item.salaIdUtfpr}"/>
+                            </center>   
+                        </p:column>
+                        <p:column>
+                            <h:form>
+                                <h:commandButton action="#{decoradorControlador.editarDecorador(item)}" image="res/css/img/edit-copy.png"/>
+                                <h:commandButton action="#{decoradorControlador.deletarDecorador(item)}" image="res/css/img/list-remove.png"/>                            </h:form>
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </div>
+            <br/>
+            <br/>
+        </ui:define>
+    </ui:composition>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <div style="height: 60px">
+                <br/>
+                <div>
+                    <center><h1>Novo decorador</h1></center>                
+                </div>
+            </div>
+            <hr/>
+            <br/><br/>
+            <div style="height: 250px">
+                <div style="width:400px; float:left; margin: 0 0 0 200px;">
+                    <br/><br/><br/>
+                    <center>
+                        <img src="res/css/img/applications-development3.png"/>
+                    </center>
+                </div>
+                <div style="float:left; margin: 30px 0 0 0;">
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Identificação " for="sident" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:inputText value="#{decoradorControlador.idUtfpr}" id="sident" style="width: 205px; font-size: 15px; font-family: 'Coda';"/>
+                            <h:outputLabel value="Descrição " for="sdesc" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:selectOneMenu value="#{decoradorControlador.tipo}" style="width: 205px; font-size: 15px; font-family: 'Coda';">
+                                <f:selectItem itemLabel="Carteira" itemValue="CARTEIRA"/>
+                                <f:selectItem itemLabel="Mouse" itemValue="MOUSE"/>
+                                <f:selectItem itemLabel="Monitor" itemValue="MONITOR"/>
+                                <f:selectItem itemLabel="Computador" itemValue="COMPUTADOR"/>
+                                <f:selectItem itemLabel="Projetor" itemValue="PROJETOR"/>
+                            </h:selectOneMenu>                    
+                            <br/>
+                            <h:commandButton value="Gravar" style="margin: 0 0 0 90px;" image="res/css/img/gravar.png" action="#{decoradorControlador.criarDecorador}" title="Clique para criar um novo decorador"/>
+                        </h:panelGrid>
+                    </h:form>
+                </div>                
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>

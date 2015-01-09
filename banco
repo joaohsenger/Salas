@@ -1,0 +1,8 @@
+insert into sala(id_sala,id_utfpr,tipo,categoria)values("Teórica","L19","TEORICA","INFORMATICA");
+insert into decorador(id_utfpr,tipo,sala_cod)values("C19","CARTEIRA",1);
+insert into pessoa(data_cadastro, nome,tipo,categoria)values("2013-08-01","Giovanna","RESPONSAVEL_GERAL","semCategoria");
+insert into pessoa(data_cadastro, nome,tipo,categoria)values("2013-08-28","Professor","PROFESSOR","semCategoria");
+insert into pessoa(data_cadastro, nome,tipo,categoria)values("2013-08-28","Setor","RESPONSAVEL_SETOR","INFORMATICA");
+insert into usuario(login, senha, tipo, usuario_cod) values("admin","123",3,1);
+insert into usuario(login, senha, tipo, usuario_cod) values("pro","123",1,2);
+insert into usuario(login, senha, tipo, usuario_cod) values("setor","123",2,3);

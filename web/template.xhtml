@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>CONSUN</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <meta charset="UTF-8"/>
+        <link href="http://fonts.googleapis.com/css?family=Coda" rel="stylesheet"/>
+        <link href="http://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet"/>
+        <link href="res/css/base.css" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <header>
+            <div id="logo"></div>
+            <div id="menu">
+                <h:form>
+                    <ul>
+                        <li><h:commandLink value="Página inicial" action="#{redirecionador.logado}"/></li>
+                        <li><h:commandLink value="Salas" action="#{redirecionador.verSalas}"/></li>
+                        <li><h:commandLink value="Usuários" action="#{redirecionador.verUsuarios}"/></li>
+                        <li><h:commandLink value="Decoradores" action="#{redirecionador.verDecoradores}"/></li>
+                        <li><h:commandLink value="Reservas" action="#{redirecionador.verReservas}"/></li>
+                        <li><h:commandLink value="Minhas reservas" action="#{redirecionador.verMinhasReservas}"/></li>                        
+                    </ul>
+                </h:form>
+            </div>
+            <div  id="messages">
+                <p:messages/>
+            </div>
+            <div id="dadosUsuario">                
+                <div id="nome">
+                    #{sessionScope.pessoa.nome}
+                </div>
+                <div id="acoes">
+                    <ul>
+                        <h:form acceptcharset="ISO-8859-1">
+                            <!--<li><a href="#">Configurações</a></li>-->
+                            <li><h:commandLink styleClass="sair" action="#{usuarioControlador.deslogar}" value="Sair "/></li>
+                        </h:form>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <section id="conteudo">
+
+
+            <ui:insert name="body">
+
+            </ui:insert>
+
+
+        </section>
+
+        <footer>
+            <div id="desc">
+                <div id="nome">Controle de salas</div>
+                <div id="sub">Universidade Tecnológica Federal do Paraná</div>
+            </div>
+            <div id="copyr">
+                <div>
+                    Desenvolvido por Giovanna Garcia e Marcos Agnes. Template, créditos à Lucas Dillmann. 
+                </div>
+            </div>
+        </footer>
+    </h:body>
+</html>

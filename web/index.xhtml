@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <div style="height: 320px">
+                <center>
+                    <br/>
+                    <h1 style="font-family: 'Coda';">Controle de salas - CONSUN</h1>
+                    <div style="margin: 40px 0 0 0;">
+                        <h:form>
+                            <h:panelGrid columns="2">
+                            <h:outputLabel value="Usuario" for="usuario" style="width: 205typx;font-size: 20px; font-family: 'Coda';"/>
+                            <h:inputText value="#{usuarioControlador.usuario}" id="usuario" style="width: 205px; font-size: 15px; font-family: 'Coda';"/>
+                            <h:outputLabel value="Senha" for="senha" style="width: 205typx;font-size: 20px; font-family: 'Coda';"/>
+                            <h:inputSecret value="#{usuarioControlador.senha}" id="senha" style="width: 205px; font-size: 15px; font-family: 'Coda';"/>
+                        </h:panelGrid>
+                            <h:commandButton style="margin: 0 0 0 150px;" value="Ir" action="#{usuarioControlador.logar}" image="res/css/img/logar.png"/>
+                        </h:form>
+                    </div>
+                </center>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>

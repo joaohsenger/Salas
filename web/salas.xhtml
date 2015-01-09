@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <div style="height: 60px">
+                <br/>
+                <div>
+                    <center><h1>Salas</h1></center>                
+                </div>
+                <div style="float:right">
+                    <h:form>
+                        <h:commandButton value="Nova Sala" action="#{redirecionador.novaSala}" image="res/css/img/add.png" title="Clique para cadastrar uma nova sala"/>
+                    </h:form>
+                </div>
+            </div>            
+            <hr/>
+            <br/>
+            <div>
+                <center>
+                    <div style="width: 600px">
+                        <h:form>
+                            <p:dataTable value="#{salaControlador.listSalaConc}" var="item"
+                                         paginator="true" rows="5"  
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                         rowsPerPageTemplate="5,10,15">
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Id "/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.id}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Identificação "/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.idUtfpr}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Tipo "/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.identificacao}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Categoria "/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.categoria}"/>
+                                </p:column>
+                                <p:column>
+                                    <center>
+                                        <h:commandButton action="#{salaControlador.editarSala(item)}" image="res/css/img/edit-copy.png"/>
+                                        <h:commandButton action="#{salaControlador.deletarSala(item)}" image="res/css/img/list-remove.png"/>                                    
+                                        <h:commandButton action="#{salaControlador.visualizarSala(item)}" image="res/css/img/system-search.png"/>
+                                    </center>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </div>                
+                </center>                
+            </div>
+            <br/>
+            <br/>
+        </ui:define>
+    </ui:composition>
+</html>

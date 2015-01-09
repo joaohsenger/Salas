@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">     
+            <script>
+                function verificaCategoria() {
+                    var a;
+                    var b;
+                    a = document.getElementById("form:sel").options[document.getElementById("form:sel").selectedIndex].text;
+                    if(a == "Responsável Setor"){
+                        //alert(a);
+                        var aa = document.getElementById("form:catego");
+                        var bb = document.getElementById("form:categg");
+                       // aa.setAttribute("rendered","true");
+                        aa.style.display = "block";
+                        bb.style.display = "block";
+                    } else {
+                         //alert(a);
+                        var aa = document.getElementById("form:catego");
+                        var bb = document.getElementById("form:categg");
+                       // aa.setAttribute("rendered","true");
+                        aa.style.display = "none";
+                        bb.style.display = "none";
+                    }
+                }
+
+            </script>
+            <div style="height: 60px">
+                <div>
+                    <center><h1>Novo usuário</h1></center>                
+                </div>
+            </div>
+            <hr/><br/><br/>
+            <div style="height: 350px">
+                <div style="width:400px; float:left; margin: 0 0 0 200px;">
+                    <br/><br/><br/><br/><br/><br/><br/>
+                    <center>
+                        <img src="res/css/img/user-info3.png"/>
+                    </center>
+                </div>
+                <div style="float:left;">
+                    <h:form id="form">
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Nome " for="unome" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:inputText value="#{usuarioControlador.nome}" id="unome" style="width: 205px; font-size: 15px; font-family: 'Coda';"/>
+                            <h:outputLabel value="Login " for="ulogin" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:inputText value="#{usuarioControlador.usuario}" id="ulogin" style="width: 205px; font-size: 15px; font-family: 'Coda';"/>
+                            <h:outputLabel value="Senha " for="usenha" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:inputSecret value="#{usuarioControlador.senha}" id="senha" style="width: 205px; font-size: 15px; font-family: 'Coda';"/>
+                            <h:outputLabel value="Tipo " for="udescricao" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:selectOneMenu value="#{usuarioControlador.descricao}" id="sel" onchange="verificaCategoria()" style="width: 205px; font-size: 15px; font-family: 'Coda';">
+                                 <f:selectItem itemLabel="Responsável Setor" itemValue="RESPONSAVEL_SETOR"/>
+                                <f:selectItem itemLabel="Responsável Geral" itemValue="RESPONSAVEL_GERAL"/>                               
+                                <f:selectItem itemLabel="Professor" itemValue="PROFESSOR"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="Categoria" id="categg" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:selectOneMenu value="#{usuarioControlador.categoria}" id="catego" style="width: 205px; font-size: 15px; font-family: 'Coda';">
+                                <f:selectItem itemValue="INFORMATICA" itemLabel="Informática"/>
+                                <f:selectItem itemValue="QUIMICA" itemLabel="Química"/>
+                                <f:selectItem itemValue="AMBIENTAL" itemLabel="Ambiental"/>
+                            </h:selectOneMenu>
+                            <br/>
+                            <h:commandButton value="Gravar" style="margin: 0 0 0 60px;" image="res/css/img/add.png" action="#{usuarioControlador.novoCadastro}" title="Clique para cadastrar um novo utilizador do sistema"/>
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>

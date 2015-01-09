@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <div style="height: 60px">
+                <br/>
+                <div>
+                    <center><h1>Nova sala</h1></center>                
+                </div>
+            </div>
+            <hr/>
+            <br/><br/>
+            <div style="height: 250px">
+                <div style="width:400px; float:left; margin: 0 0 0 200px;">
+                    <br/><br/><br/><br/><br/>
+                    <center>
+                        <img src="res/css/img/go-home3.png"/>
+                    </center>
+                </div>
+                <div style="float:left; margin: 30px 0 0 0;">
+                    <h:form>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Identificação " for="sident" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:inputText value="#{salaControlador.identificacao}" id="sident" style="width: 205px; font-size: 15px; font-family: 'Coda';"/>
+                            <h:outputLabel value="Descrição " for="sdesc" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:selectOneMenu value="#{salaControlador.descricao}" style="width: 205px; font-size: 15px; font-family: 'Coda';">
+                                <f:selectItem itemValue="LAB_MECANICA" itemLabel="Laboratório de Mecânica"/>
+                                <f:selectItem itemValue="TEORICA" itemLabel="Teórica"/>
+                                <f:selectItem itemValue="LAB_INFORMATICA" itemLabel="Laboratório de Informática"/>
+                                <f:selectItem itemValue="LAB_QUIMICA" itemLabel="Laboratório de Química"/>
+                            </h:selectOneMenu>       
+                            <h:outputLabel value="Categoria" id="categg" style="font-size: 20px; font-family: 'Coda';"/>
+                            <h:selectOneMenu value="#{salaControlador.categoria}" id="catego" style="width: 205px; font-size: 15px; font-family: 'Coda';">
+                                <f:selectItem itemValue="INFORMATICA" itemLabel="Informática"/>
+                                <f:selectItem itemValue="QUIMICA" itemLabel="Química"/>
+                                <f:selectItem itemValue="AMBIENTAL" itemLabel="Ambiental"/>
+                            </h:selectOneMenu>
+                            <br/>
+                            <h:commandButton value="Gravar" style="margin: 0 0 0 50px;" image="res/css/img/gravar.png" action="#{salaControlador.criarSala}" title="Clique para criar uma nova sala"/>
+                        </h:panelGrid>
+                    </h:form>
+                </div>                
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>

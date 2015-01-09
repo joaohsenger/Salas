@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">            
+            <div style="height: 60px">
+                <div>
+                    <center><h1>Minhas reservas</h1></center>                
+                </div>
+            </div>            
+            <hr/>
+            <br/>
+            <div>
+                <center>
+                    <div style="width: 600px">
+                        <h:form>
+                            <p:dataTable value="#{reservaControlador.listaMinhasReservas}" var="item"
+                                         paginator="true" rows="10"  
+                                         paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                         rowsPerPageTemplate="5,10,15">
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Data "/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.data}">
+                                        <f:convertDateTime parent="dd/MM/yyyy"/>
+                                    </h:outputText>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Aula "/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.m_aula.m_id}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Sala "/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.sala.idUtfpr}"/>
+                                </p:column>
+                                <p:column>
+                                    <center>                                
+                                        <h:commandButton action="#{reservaControlador.deletarReserva(item)}" image="res/css/img/list-remove.png"/>
+                                    </center>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </div>
+                </center>                
+            </div>
+            <br/>
+            <br/>
+        </ui:define>
+    </ui:composition>
+</html>

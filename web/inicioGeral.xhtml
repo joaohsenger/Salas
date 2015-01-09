@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="body">
+            <div style="height: 60px">
+                <br/>
+                <div>
+                    <center><h1>Gerenciar</h1></center>                
+                </div>
+            </div>
+            <hr/>
+            <h:form>
+                <br/><br/>
+                <div style="height: 300px;">
+                    <div style="float: left;margin: 0 0 0 400px;">   
+                        <center><h2>Usuários</h2>                           
+                            <h:commandButton image="res/css/img/user-info.png" action="#{redirecionador.verUsuarios()}"/>
+                        </center> 
+                    </div>
+                    <div style="float: right; margin: 0 410px 0 0 ;">
+                        <div style="float: left; margin: 0 10px 0 0 ;">
+                            <center><h2>Salas</h2>
+                                <h:commandButton image="res/css/img/go-home.png" action="#{redirecionador.verSalas()}"/>     
+                            </center>
+                        </div>
+                        <div style="float: right; margin: 0 0 0 70px ;">
+                            <center><h2>Decoradores</h2>
+                                <h:commandButton image="res/css/img/applications-development.png" action="#{redirecionador.verDecoradores()}"/> 
+                            </center>
+                        </div>
+                    </div>                   
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
